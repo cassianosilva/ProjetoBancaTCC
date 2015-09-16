@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProjetoBancaTCC_OO2.Models.Professor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Nome</td>
+            <td><a href="~/Professor/Delete/@item.Id">Excluir</a></td>
+            <td><a href="~/Professor/Update/@item.Id">Alterar</a></td>
+        </tr>
+    }
+
+</table>

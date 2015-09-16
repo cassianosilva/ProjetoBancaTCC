@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Cadastrar Professor</h2>
+
+<div class="panel">
+    <form action="/Professor/Create" method="post">
+        <div class="form-group">
+            <label>Id</label>
+            <input class="form-control" type="text" id="id" name="Id" value="" />
+        </div>
+
+        <div class="form-group">
+            <label>Nome</label>
+            <input class="form-control" type="text" id="nome" name="Nome" value="" />
+        </div>
+
+        <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+</div>
