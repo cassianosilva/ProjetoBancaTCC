@@ -20,7 +20,7 @@ namespace ProjetoBancaTCC_OO2.Models
 
             while (dr.Read())
             {
-                alunos.Add(new Aluno((int)dr["id"], (string)dr["nome"]));
+                alunos.Add(new Aluno((int)dr["id"], (string)dr["nome"], (string)dr["cidade"]));
             }
 
             return alunos;
@@ -31,7 +31,7 @@ namespace ProjetoBancaTCC_OO2.Models
             string sql = "SELECT * FROM alunos WHERE id = " + pId;
             MySqlDataReader dr = conn.executarConsulta(sql);
             dr.Read();
-            Aluno alunoEditando = new Aluno((int)dr["id"], (string)dr["nome"]);
+            Aluno alunoEditando = new Aluno((int)dr["id"], (string)dr["nome"], (string)dr["cidade"]);
 
             return alunoEditando;
         }
@@ -39,7 +39,7 @@ namespace ProjetoBancaTCC_OO2.Models
         public void Create(Aluno pAluno)
         {
             string insert = "INSERT INTO alunos VALUES (";
-            insert += pAluno.Id + ",'" + pAluno.Nome + "')";
+            insert += pAluno.Id + ",'" + pAluno.Nome + "','" + pAluno.Cidade + "')";
 
             conn.executarComando(insert);
         }
@@ -53,7 +53,8 @@ namespace ProjetoBancaTCC_OO2.Models
 
         public void Update(Aluno pAluno)
         {
-            string updateSql = "UPDATE alunos SET nome = " + pAluno.Nome + " WHERE id = " + pAluno.Id;
+            string updateSql = 
+            "UPDATE alunos SET nome = " + pAluno.Nome + ", cidade = " + pAluno.Cidade + " WHERE id = " + pAluno.Id;
 
             conn.executarComando(updateSql);
         }

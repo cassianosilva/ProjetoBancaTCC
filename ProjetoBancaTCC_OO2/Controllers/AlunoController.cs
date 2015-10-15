@@ -23,6 +23,10 @@ namespace ProjetoBancaTCC_OO2.Controllers
 
         public ActionResult Create()
         {
+            Cidade.popularCidades(1, "Torres");
+            Cidade.popularCidades(2, "Arroio do Sal");
+            Cidade.popularCidades(3, "Terra de Areia");
+            ViewBag.ListCidade = Cidade.listaCidades;
             return View();
         }
 

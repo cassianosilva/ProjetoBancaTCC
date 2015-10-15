@@ -17,6 +17,16 @@
             <input class="form-control" type="text" id="nome" name="Nome" value="" />
         </div>
 
+        <div class="form-group">
+            <label>Cidade</label>
+            <select class="form-control" name="Cidade">
+                @foreach (var item in ViewBag.ListCidade)
+                {
+                    <option value="@item.Nome">@item.Nome</option>
+                }
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-default">Enviar</button>
     </form>
 </div>

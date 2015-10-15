@@ -6,24 +6,28 @@
 
 <h2>Index</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="container">
+    <a href="~/Home/Create">Nova Disciplina</a>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Nome</td>
-            <td><a href="~/Disciplina/Delete/@item.Id">Excluir</a></td>
-            <td><a href="~/Disciplina/Update/@item.Id">Alterar</a></td>
-        </tr>
-    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td><a href="~/Disciplina/Delete/@item.Id">Excluir</a></td>
+                <td><a href="~/Disciplina/Update/@item.Id">Alterar</a></td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -9,15 +9,17 @@ namespace ProjetoBancaTCC_OO2.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Cidade { get; set; }
 
         public Aluno()
         {
         }
 
-        public Aluno(int pId, string pNome)
+        public Aluno(int pId, string pNome, string pCidade)
         {
             Id = pId;
             Nome = pNome;
+            Cidade = pCidade;
         }
     }
 }

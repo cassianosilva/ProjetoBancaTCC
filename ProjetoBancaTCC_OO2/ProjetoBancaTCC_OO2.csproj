@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\AlunoRepositorio.cs" />
+    <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Disciplina.cs" />
     <Compile Include="Models\DisciplinaRepositorio.cs" />
     <Compile Include="Models\Professor.cs" />
