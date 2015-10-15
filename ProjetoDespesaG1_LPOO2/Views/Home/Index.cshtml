@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetoDespesaG1_LPOO2.Models.Despesa>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">Despesas pessoais</h2><br />
+
+<div style="text-align:center;">
+    <div class="navbar-fixed-top">
+        <a class="btn btn-toolbar btn-warning" href="@Url.Action("Despesas", "Despesa")">Despesas</a>
+        <a class="btn btn-toolbar btn-warning" href="@Url.Action("Tipos", "Tipo")">Tipos</a>
+    </div>
+</div>
+
+<div class="container" style="text-align:right">
+    <form class="form-inline" role="form" action="/Despesa/Pesquisa/Data" method="post">
+        <div class="form-group">
+            <label for="focusedInput">Pesquisar por data</label>
+            <input class="form-control" style="width:auto" id="focusedInput" type="date" name="Data" value="" />
+        </div>
+        <div class="form-group">
+            <button class="btn glyphicon glyphicon-search" type="submit"></button>
+        </div>
+    </form>
+</div>
+
+<h5 align="center" style="font-weight:bold">Últimos registros</h5>
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Valor (R$)</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.LocalDespesa</td>
+            <td>@item.DataDespesa.ToShortDateString()</td>
+            <td>@item.ValorDespesa</td>
+            <td>@item.Tipo.nomeTipo</td>
+            <td align="center"><a class="btn btn-danger" href="~/Despesa/Delete/@item.IdDespesa">Excluir</a></td>
+            <td align="center"><a class="btn btn-info" href="~/Despesa/Update/@item.IdDespesa">Alterar</a></td>
+        </tr>
+    }
+</table>
+
+<a class="btn btn-group-sm" style="background-color:gainsboro" href="@Url.Action("Create", "Despesa")">Adicionar nova despesa</a>
+<a class="btn btn-group-sm" style="background-color:gainsboro" href="@Url.Action("Create", "Tipo")">Adicionar novo tipo</a>

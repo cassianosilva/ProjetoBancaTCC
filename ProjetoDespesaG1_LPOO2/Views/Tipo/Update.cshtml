@@ -1,0 +1,22 @@
+﻿@model ProjetoDespesaG1_LPOO2.Models.TipoDespesa
+@{
+    ViewBag.Title = "Update";
+}
+
+<h3 style="text-align:center;">Alterar tipo</h3>
+
+<form action="/Tipo/Update" method="post">
+    <div class="form-group">
+        <input class="form-control" readonly="readonly" type="hidden" name="idTipo" value="@Model.idTipo" />
+    </div>
+
+    <div class="form-group">
+        <label>Nome do tipo</label>
+        <input class="form-control" type="text" name="nomeTipo" value="@Model.nomeTipo" />
+        @Html.ValidationMessageFor(model => model.nomeTipo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-success" />
+    </div>
+</form>

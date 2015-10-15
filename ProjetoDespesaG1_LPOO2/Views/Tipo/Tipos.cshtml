@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjetoDespesaG1_LPOO2.Models.TipoDespesa>
+@{
+    ViewBag.Title = "Tipos";
+}
+
+<h2 style="text-align:center">Tipos cadastrados</h2><br />
+
+<div style="text-align:center;">
+    <div class="navbar-fixed-top">
+        <a class="btn btn-toolbar btn-warning" href="@Url.Action("Index", "Home")">Página principal</a>
+    </div>
+</div>
+
+<h5 style="font-weight:bold; text-align:center;">Tipos</h5>
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Nome</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.nomeTipo</td>
+            <td align="center"><a class="btn btn-danger" href="~/Tipo/Delete/@item.idTipo">Excluir</a></td>
+            <td align="center"><a class="btn btn-info" href="~/Tipo/Update/@item.idTipo">Alterar</a></td>
+        </tr>
+    }
+</table>
+
+<a class="btn btn-group-sm" style="background-color:gainsboro" href="@Url.Action("Create", "Tipo")">Adicionar novo</a>
+
+@if (null != TempData["errorDelete"])
+{
+    <script>
+        alert('@Html.Raw(TempData["errorDelete"])');
+    </script>
+}

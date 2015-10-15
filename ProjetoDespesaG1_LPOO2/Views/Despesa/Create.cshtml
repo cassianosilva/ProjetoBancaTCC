@@ -1,0 +1,40 @@
+﻿@model ProjetoDespesaG1_LPOO2.Models.Despesa
+@{
+    ViewBag.Title = "Create";
+}
+
+<h3 style="text-align:center;">Cadastrar Despesa</h3>
+
+<form action="/Despesa/Create" method="post">
+    <div class="form-group">
+        <label>Local da despesa</label>
+        <input class="form-control" type="text" name="LocalDespesa" value="" />
+        @Html.ValidationMessageFor(model => model.LocalDespesa, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Data da despesa</label>
+        <input class="form-control" type="date" name="DataDespesa" value="" />
+        @Html.ValidationMessageFor(model => model.DataDespesa, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Valor da despesa</label>
+        <input class="form-control" type="text" min="0" step="any" name="ValorDespesa" value="" />
+        @Html.ValidationMessageFor(model => model.ValorDespesa, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Tipo da despesa</label>
+        <select class="form-control" name="Tipo.idTipo">
+            @foreach (ProjetoDespesaG1_LPOO2.Models.TipoDespesa item in ViewBag.Tipos)
+            {
+                <option value="@item.idTipo">@item.nomeTipo</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-success" />
+    </div>
+</form>
